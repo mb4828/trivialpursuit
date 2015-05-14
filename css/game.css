@@ -1,0 +1,62 @@
+body {
+    background-color: #eeeeee;
+}
+
+#game-container{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#board-left {
+    width: 30%;
+    float: left;
+    background: white;
+}
+
+#board-right {
+    width: 70%;
+    float:right;
+    background: white;
+    text-align: center;
+}
+
+img#logo {
+    width: 95%;
+    display: block;
+    margin: 0 auto;
+}
+
+img#board {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+
+img.gamepiece {
+    width: 70px;
+    position: relative;
+    left: 0;
+    top: 0;
+    cursor: move;
+}
+
+table#score-table {
+    width: 92%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#score-table td, #score-table th {
+    border: 2px solid black;
+    padding: 10px 0px;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}

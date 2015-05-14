@@ -32,44 +32,48 @@
     top:-13px;
 }
 
-.gamepiece0, .gamepiece0::before {
+#gamepiece0, #gamepiece0::before {
     background-color: rgb(158, 230, 228);
 }
-.gamepiece0::after {
+#gamepiece0::after {
     background-color: rgb(142, 207, 205);
 }
 
-.gamepiece1, .gamepiece1::before {
+#gamepiece1, #gamepiece1::before {
     background-color: rgb(226, 164, 120);
+    right: 10px;
 }
-.gamepiece1::after {
+#gamepiece1::after {
     background-color: rgb(203, 148, 108);
+    right: 10px;
 }
 
-.gamepiece2, .gamepiece2::before {
+#gamepiece2, #gamepiece2::before {
     background-color: rgb(255, 182, 238);
+    right: 20px;
 }
-.gamepiece2::after {
+#gamepiece2::after {
     background-color: rgb(230, 164, 214);
+    right: 20px;
 }
 
-.gamepiece3, .gamepiece3::before {
+#gamepiece3, #gamepiece3::before {
     background-color: rgb(52, 212, 172);
 }
-.gamepiece3::after {
+#gamepiece3::after {
     background-color: rgb(47, 191, 155);
 }
 
-.gamepiece4, .gamepiece4::before {
+#gamepiece4, #gamepiece4::before {
     background-color: rgb(235, 230, 128);
 }
-.gamepiece4::after {
+#gamepiece4::after {
     background-color: rgb(212, 207, 115);
 }
 
-.gamepiece5, .gamepiece5::before {
+#gamepiece5, #gamepiece5::before {
     background-color: rgb(187, 117, 117);
 }
-.gamepiece5::after {
+#gamepiece5::after {
     background-color: rgb(179, 102, 102);
 }

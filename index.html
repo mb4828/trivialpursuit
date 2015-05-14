@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Expendables Trivial Pursuit</title>
+
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/game.css">
+    <link rel="stylesheet" type="text/css" href="css/wedges.css">
+
+    <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="scripts/gamescripts.js"></script>
+</head>
+<body>
+    <div id="game-container">
+
+        <div id="board-left">
+            <img id="logo" class="noselect" src="images/tpelogo.png" alt="" />
+
+            <br />
+
+            <table id="score-table">
+                <tr>
+                    <th>Team</th>
+                    <th>
+                        <div id="wedge0" class="wedge wedge0" draggable="true"></div>
+                        <div id="wedge1" class="wedge wedge1" draggable="true"></div>
+                        <div id="wedge2" class="wedge wedge2" draggable="true"></div>
+                        <div id="wedge3" class="wedge wedge3" draggable="true"></div>
+                        <div id="wedge4" class="wedge wedge4" draggable="true"></div>
+                        <div id="wedge5" class="wedge wedge5" draggable="true"></div>
+                    </th>
+                </tr>
+                <tr><td>Blue</td>    <td></td></tr>
+                <tr><td>Orange</td>  <td></td></tr>
+                <tr><td>Pink</td>   <td></td></tr>
+                <tr><td>Green</td>   <td></td></tr>
+                <tr><td>Yellow</td>   <td></td></tr>
+                <tr><td>Red</td> <td></td></tr>
+            </table>
+
+            <br />
+        </div>
+
+        <div id="board-right">
+            <img id="board" class="noselect" data-draggable="target" src="images/trivpurboard.png" alt="" />
+
+            <img id="p0" class="gamepiece" draggable="true" data-draggable="gp" src="images/p0.png" alt="" />
+            <img id="p1" class="gamepiece" draggable="true" data-draggable="gp" src="images/p1.png" alt="" />
+            <img id="p2" class="gamepiece" draggable="true" data-draggable="gp" src="images/p2.png" alt="" />
+            <img id="p3" class="gamepiece" draggable="true" data-draggable="gp" src="images/p3.png" alt="" />
+            <img id="p4" class="gamepiece" draggable="true" data-draggable="gp" src="images/p4.png" alt="" />
+            <img id="p5" class="gamepiece" draggable="true" data-draggable="gp" src="images/p5.png" alt="" />
+        </div>
+
+    </div>
+</body>
+</html>
