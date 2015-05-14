@@ -1,4 +1,27 @@
-.gamepiece{
+img.gamepiece {
+    width: 70px;
+    position: relative;
+    left: 0;
+    top: 0;
+    cursor: move;
+}
+
+div.gamepiece {
+	width: 40px;
+	height: 40px;
+    position: relative; left: 0; top: 0;
+	background: gray;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+    -webkit-box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.5);
+    -moz-box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.5);
+    border: 1px solid darkred;
+    cursor: move;
+}
+
+/*.gamepiece{
     position:relative;
     margin:50px;
     width:60px;
@@ -76,4 +99,4 @@
 }
 #gamepiece5::after {
     background-color: rgb(179, 102, 102);
-}
+}*/

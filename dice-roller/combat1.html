@@ -1,0 +1,163 @@
+<!--
+    JavaScript Animated D6 Dice Roller - Example Combat System 
+
+    Written in 2005 by Michael K. Eidson, mike@eposic.org, http://eposic.org 
+
+    To the extent possible under law, the author(s) have dedicated all
+    copyright and related and neighboring rights to this software to the
+    public domain worldwide. This software is distributed without any warranty. 
+
+    You should have received a copy of the CC0 Public Domain Dedication along
+    with this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>. 
+-->
+<html>
+<head>
+<title>Example Combat System using the JavaScript Animated D6 Dice Roller</title>
+<script type='text/javascript' src='d6.js'></script>
+<script type='text/javascript'>
+var gameInfo = {
+	'hero' : {
+		'Offense' : D6.quickRandom(6),
+		'Defense' : D6.quickRandom(6),
+		'Health'  : D6.quickRandom(6)
+	},
+	'monster' : {
+		'Offense' : D6.quickRandom(6),
+		'Defense' : D6.quickRandom(6),
+		'Health'  : D6.quickRandom(6)
+	},
+	'turns' : 0
+}
+
+function attack(total, combatInfo, results) {
+	var hero = combatInfo.hero;
+	var monster = combatInfo.monster;
+	combatInfo.turns++;
+	var heroOffenseTotal = results[0] + hero.Offense;
+	var heroDefenseTotal = results[1] + hero.Defense;
+	var monsterOffenseTotal = results[2] + monster.Offense;
+	var monsterDefenseTotal = results[3] + monster.Defense;
+	var monsterWounds = 0;
+	var heroWounds = 0;
+	if (heroOffenseTotal > monsterDefenseTotal) {
+		monsterWounds = heroOffenseTotal - monsterDefenseTotal;
+	}
+	if (monsterOffenseTotal > heroDefenseTotal) {
+		heroWounds = monsterOffenseTotal - heroDefenseTotal;
+	}
+	hero.Health -= heroWounds;
+	monster.Health -= monsterWounds;
+	var message = 'Combat turn: ' + combatInfo.turns + '<br /><br />';
+	if (monsterWounds < 1) message += 'Hero missed!<br />';
+	else message += 'Hero hit Monster for ' + monsterWounds + ' damage!<br />';
+	if (heroWounds < 1) message += 'Monster missed!<br />';
+	else message += 'Monster hit Hero for ' + heroWounds + ' damage!<br />';
+	if (monster.Health < 1) {
+		message += '<br /><b>Monster has died!</b><br />';
+		if (hero.Health > 0) {
+			message += '<br /><b>Congratulations on your victory!</b><br />';
+			message += '<br /><a href="combat1.html">New combat.</a><br />';
+			D6.setButtonLabel("none");
+		}
+	} else if (monster.Health < combatInfo.turns) {
+		message += '<br /><em>Monster is getting tired!</em><br />';
+		if (monster.Defense > 0)
+			monster.Defense--;
+		else if (monster.Offense > 0)
+			monster.Offense--;
+	}
+	if (hero.Health < 1) {
+		message += '<br /><b>Hero has died!</b><br />';
+		message += '<br /><em>Sorry for the inconvenience!</em><br />';
+		message += '<br /><a href="combat1.html">New combat.</a><br />';
+		D6.setButtonLabel("none");
+	} else if ((hero.Health < combatInfo.turns) && (monster.Health > 0)) {
+		message += '<br /><em>Hero is getting tired!</em><br />';
+		if (hero.Defense > 0)
+			hero.Defense--;
+		else if (hero.Offense > 0)
+			hero.Offense--;
+	}
+	var messageElem = document.getElementById('messages');
+	if (messageElem) messageElem.innerHTML = message;
+	updateStat('heroOffense', hero.Offense);
+	updateStat('heroDefense', hero.Defense);
+	updateStat('heroHealth', hero.Health);
+	updateStat('monsterOffense', monster.Offense);
+	updateStat('monsterDefense', monster.Defense);
+	updateStat('monsterHealth', monster.Health);
+}
+
+function updateStat(statId, statValue) {
+	var statElem = document.getElementById(statId);
+	if (statElem) statElem.innerHTML = statValue;
+}
+</script>
+</head>
+<body>
+<h1>Combat!</h1>
+<table border='1' cellspacing='0' cellpadding='5'>
+	<tr>
+		<td><b>Hero:</b></td>
+		<td>Offense:
+			<span id='heroOffense'><script type='text/javascript'>document.write(gameInfo.hero.Offense);</script></span>
+			/ <script type='text/javascript'>document.write(gameInfo.hero.Offense);</script>
+		</td>
+		<td>Defense:
+			<span id='heroDefense'><script type='text/javascript'>document.write(gameInfo.hero.Defense);</script></span>
+			/ <script type='text/javascript'>document.write(gameInfo.hero.Defense);</script>
+		</td>
+		<td>Health:
+			<span id='heroHealth'><script type='text/javascript'>document.write(gameInfo.hero.Health);</script></span>
+			/ <script type='text/javascript'>document.write(gameInfo.hero.Health);</script>
+		</td>
+	</tr>
+	<tr>
+		<td><b>Monster:</b></td>
+		<td>Offense:
+			<span id='monsterOffense'><script type='text/javascript'>document.write(gameInfo.monster.Offense);</script></span>
+			/ <script type='text/javascript'>document.write(gameInfo.monster.Offense);</script>
+		</td>
+		<td>Defense:
+			<span id='monsterDefense'><script type='text/javascript'>document.write(gameInfo.monster.Defense);</script></span>
+			/ <script type='text/javascript'>document.write(gameInfo.monster.Defense);</script>
+		</td>
+		<td>Health:
+			<span id='monsterHealth'><script type='text/javascript'>document.write(gameInfo.monster.Health);</script></span>
+			/ <script type='text/javascript'>document.write(gameInfo.monster.Health);</script>
+		</td>
+	</tr>
+</table>
+
+<script type='text/javascript'>
+D6.dice(4, attack, gameInfo);
+</script>
+
+<div id='messages'><pre>
+Click the Roll Dice button to begin the combat!
+The first die is the hero's Offense roll.
+The second die is the hero's Defense roll.
+The third die is the monster's Offense roll.
+The fourth die is the monster's Defense roll.
+</pre></div>
+
+<p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
+  <a rel="license"
+     href="http://creativecommons.org/publicdomain/zero/1.0/">
+    <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" />
+  </a>
+  <br />
+  To the extent possible under law,
+  <a rel="dct:publisher"
+     href="http://eposic.org">
+    <span property="dct:title">Michael K. Eidson</span></a>
+  has waived all copyright and related or neighboring rights to
+  <span property="dct:title">JavaScript Animated D6 Dice Roller</span>.
+This work is published from:
+<span property="vcard:Country" datatype="dct:ISO3166"
+      content="US" about="http://eposic.org">
+  United States</span>.
+</p>
+
+</body>
+</html>
