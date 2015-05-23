@@ -14,6 +14,7 @@
     <script type='text/javascript' src='dice-roller/d6.js'></script>
 </head>
 <body>
+  <div id="window-container">
     <div id="game-container">
 
         <div id="board-left">
@@ -47,10 +48,10 @@
                 <tr>
                     <td><script type="text/javascript">
                         D6.setBaseUrl('dice-roller/');
-
                         D6.dice(1);
                         D6.setButtonLabel('Roll the dice!');
                         $('.die').css('width', '50px');
+                        D6.roll();
                     </script></td>
                 </tr>
             </table>
@@ -60,7 +61,7 @@
         </div>
 
         <div id="board-right">
-            <img id="board" class="noselect" data-draggable="target" src="images/trivpurboard.png" alt="" />
+            <img id="board" class="noselect" data-draggable="target" src="images/trivpur2.png" alt="" />
 
             <table id="pieces-table">
                 <tr>
@@ -82,5 +83,6 @@
         </div>
 
     </div>
+  </div>
 </body>
 </html>

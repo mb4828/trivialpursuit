@@ -1,32 +1,51 @@
-body {
-    background-color: #eeeeee;
+html, body{
+    background-color: #800000;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#window-container{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    flex-align: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    flex-pack: center;
 }
 
 #game-container{
     width: 1200px;
     height: 775px;
-    margin: 0 auto;
+    /*margin: auto;*/
+    padding-top: 20px;
+    background: #888888;
+
 }
 
 #board-left {
     width: 30%;
     float: left;
-    background: white;
-    height: 750px;
 }
 
 #board-right {
     width: 70%;
     float:right;
-    background: white;
     text-align: center;
-    height: 750px;
 }
 
 img#logo {
-    width: 95%;
+    width: 90%;
     display: block;
     margin: 0 auto;
+    border: 4px solid black;
 }
 
 img#board {
@@ -42,10 +61,11 @@ table#score-table {
 }
 
 #score-table td, #score-table th {
-    border: 2px solid #111111;
+    border: 4px solid black;
     padding: 10px 0px;
     height: 36px;
     font-weight: bold;
+    background: white;
 }
 
 table#dice-table {
@@ -54,8 +74,9 @@ table#dice-table {
     height: 120px;
     text-align: center;
     font-weight: bold;
-    border: 2px solid #111111;
+    border: 4px solid black;
     padding: 10px;
+    background: white;
 }
 
 table#pieces-table {
